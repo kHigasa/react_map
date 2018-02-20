@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 const HotelRow = ({ hotel }) => (
   <tr>
+    <td><img src={hotel.thumbURL} alt={hotel.name} /></td>
     <td><a href={hotel.url} target="_brank">{hotel.name}</a></td>
+    <td>{hotel.price ? `¥${hotel.price}` : '空室なし'}</td>
+    <td>{hotel.reviewAverage}</td>
+    <td>{hotel.reviewCount}</td>
+    <td>{hotel.distance}</td>
   </tr>
 );
 
@@ -11,6 +16,11 @@ HotelRow.propTypes = {
   hotel: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
+    thumbURL: PropTypes.string,
+    price: PropTypes.number,
+    reviewAverage: PropTypes.number,
+    reviewCount: PropTypes.number,
+    distance: PropTypes.number,
   }).isRequired,
 };
 
